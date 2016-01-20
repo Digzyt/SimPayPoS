@@ -5,7 +5,6 @@ import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.Intent;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
-import android.widget.Button;
 
 /**
  * Created by Yegon on 1/18/2016.
@@ -23,7 +22,7 @@ public class UssdReader extends AccessibilityService {
             Log.d(TAG, text);
             Intent intent = new Intent("com.times.ussd.action.REFRESH");
             intent.putExtra("message",text);
-            //write a broadcast receiver and call sendbroadcast from here if you want to parse the message
+            sendBroadcast(intent);
         }
     }
     @Override
